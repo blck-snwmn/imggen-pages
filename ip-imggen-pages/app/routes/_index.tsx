@@ -18,7 +18,10 @@ const FormPage = () => {
 				<h2 className="text-2xl font-bold mb-6">フォーム</h2>
 				<form>
 					<div className="mb-4">
-						<label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+						<label
+							htmlFor="name"
+							className="block text-gray-700 font-bold mb-2"
+						>
 							名前
 						</label>
 						<input
@@ -29,7 +32,10 @@ const FormPage = () => {
 						/>
 					</div>
 					<div className="mb-4">
-						<label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+						<label
+							htmlFor="email"
+							className="block text-gray-700 font-bold mb-2"
+						>
 							メールアドレス
 						</label>
 						<input
@@ -40,7 +46,10 @@ const FormPage = () => {
 						/>
 					</div>
 					<div className="mb-4">
-						<label htmlFor="phone" className="block text-gray-700 font-bold mb-2">
+						<label
+							htmlFor="phone"
+							className="block text-gray-700 font-bold mb-2"
+						>
 							電話番号
 						</label>
 						<input
@@ -51,7 +60,10 @@ const FormPage = () => {
 						/>
 					</div>
 					<div className="mb-4">
-						<label htmlFor="address" className="block text-gray-700 font-bold mb-2">
+						<label
+							htmlFor="address"
+							className="block text-gray-700 font-bold mb-2"
+						>
 							住所
 						</label>
 						<input
@@ -62,7 +74,10 @@ const FormPage = () => {
 						/>
 					</div>
 					<div className="mb-6">
-						<label htmlFor="message" className="block text-gray-700 font-bold mb-2">
+						<label
+							htmlFor="message"
+							className="block text-gray-700 font-bold mb-2"
+						>
 							メッセージ
 						</label>
 						<input

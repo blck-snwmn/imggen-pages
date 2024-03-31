@@ -1,11 +1,11 @@
+import { zValidator } from "@hono/zod-validator";
 import { Resvg, initWasm } from "@resvg/resvg-wasm";
 import { Parser, jaModel } from "budoux";
 import { Hono } from "hono";
-import React from "react";
+import type React from "react";
 import satori from "satori";
+import { z } from "zod";
 import resvgWasm from "./vendor/resvg.wasm";
-import { z } from 'zod'
-import { zValidator } from '@hono/zod-validator'
 
 // initialize budoux parser
 const parser = new Parser(jaModel);
@@ -17,32 +17,26 @@ await initWasm(resvgWasm);
 const schema = z.object({
 	icon: z.string().url(),
 	text: z.string().min(1).max(20),
-})
+});
 
 const app = new Hono();
 
 app.post("/", zValidator("json", schema), async (c) => {
-	const { icon, text } = c.req.valid('json')
+	const { icon, text } = c.req.valid("json");
 
 	const fontData = await getGoogleFont();
-	const svg = await satori(
-		<Component
-			text={text}
-			iconUrl={icon}
-		/>,
-		{
-			width: 1200,
-			height: 630,
-			fonts: [
-				{
-					name: "Roboto",
-					data: fontData,
-					weight: 400,
-					style: "normal",
-				},
-			],
-		},
-	);
+	const svg = await satori(<Component text={text} iconUrl={icon} />, {
+		width: 1200,
+		height: 630,
+		fonts: [
+			{
+				name: "Roboto",
+				data: fontData,
+				weight: 400,
+				style: "normal",
+			},
+		],
+	});
 
 	const resvg = new Resvg(svg, {
 		fitTo: {
