@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
 		{ title: "Create Image" },
 		{
 			name: "description",
-			content: "Create Image",
+			content: "Create Profile Image",
 		},
 	];
 };
