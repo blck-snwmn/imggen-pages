@@ -1,3 +1,17 @@
+interface InfoItemProps {
+	label: string;
+	value: string;
+}
+
+const InfoItem = ({ label, value }: InfoItemProps) => {
+	return (
+		<div style={styles.infoItem}>
+			<span style={styles.infoLabel}>{label}</span>
+			<span style={styles.infoValue}>{value}</span>
+		</div>
+	);
+};
+
 interface ProfileCardProps {
 	name: string;
 	hobby: string;
@@ -15,6 +29,13 @@ const ProfileCard = ({
 	iconUrl,
 	favoritePlace,
 }: ProfileCardProps) => {
+	const infoItems: InfoItemProps[] = [
+		{ label: "趣味", value: hobby },
+		{ label: "好きな食べ物", value: favoriteFood },
+		{ label: "好きな映画", value: favoriteMovie },
+		{ label: "お気に入りの場所", value: favoritePlace },
+	];
+
 	return (
 		<div style={styles.card}>
 			<div style={styles.iconContainer}>
@@ -22,22 +43,10 @@ const ProfileCard = ({
 				<h2 style={styles.name}>{name}</h2>
 			</div>
 			<div style={styles.infoContainer}>
-				<div style={styles.infoItem}>
-					<span style={styles.infoLabel}>趣味</span>
-					<span style={styles.infoValue}>{hobby}</span>
-				</div>
-				<div style={styles.infoItem}>
-					<span style={styles.infoLabel}>好きな食べ物</span>
-					<span style={styles.infoValue}>{favoriteFood}</span>
-				</div>
-				<div style={styles.infoItem}>
-					<span style={styles.infoLabel}>好きな映画</span>
-					<span style={styles.infoValue}>{favoriteMovie}</span>
-				</div>
-				<div style={styles.infoItem}>
-					<span style={styles.infoLabel}>お気に入りの場所</span>
-					<span style={styles.infoValue}>{favoritePlace}</span>
-				</div>
+				{infoItems.map((item, index) => (
+					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+					<InfoItem key={index} label={item.label} value={item.value} />
+				))}
 			</div>
 		</div>
 	);
