@@ -149,6 +149,7 @@ const styles = {
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
+		justifyContent: "center",
 		width: "350px",
 		padding: "20px",
 		borderRadius: "10px",
