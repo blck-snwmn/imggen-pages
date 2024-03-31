@@ -83,6 +83,8 @@ const styles = {
 		textAlign: "center",
 	},
 	infoContainer: {
+		display: "flex",
+		flexDirection: "column",
 		width: "100%",
 	},
 	infoItem: {
