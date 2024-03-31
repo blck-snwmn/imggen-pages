@@ -70,20 +70,20 @@ const styles = {
         width: '100%',
     },
     infoItem: {
-        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
         marginBottom: '25px',
+        height: '50px',
     },
     infoLabel: {
-        position: 'absolute',
-        top: '-12px',
-        left: '0',
         fontSize: '12px',
         fontWeight: 'bold',
         color: '#8c9db5',
     },
     infoValue: {
         fontSize: '18px',
-        marginTop: '12px',
+        display: 'flex',
+        alignItems: 'center',
     },
 };
 
@@ -91,7 +91,7 @@ const FormPage = () => {
     return <ProfileCard
         name={"John Doe"}
         hobby={"Programming"}
-        favoriteFood={"海鮮丼"}
+        favoriteFood={"海鮮丼ああああああああああ いいいいいいいい"}
         favoriteMovie={"SFやファンタジーああああああああああいいいいいいいい"}
         iconUrl="https://avatars.githubusercontent.com/u/44711725?v=4"
         favoritePlace={"日本の京都の祇園地区"}
