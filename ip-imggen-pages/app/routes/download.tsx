@@ -36,7 +36,7 @@ export const action = async ({ context, request }: ActionFunctionArgs) => {
 	}
 
 	const { env } = context.cloudflare;
-	const resp = await env.GENERATOR.fetch("http://localhost:8787", {
+	const resp = await env.GENERATOR.fetch("http://localhost:8787/", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
