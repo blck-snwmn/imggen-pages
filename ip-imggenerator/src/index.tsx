@@ -1,3 +1,4 @@
+import { RpcTarget, WorkerEntrypoint } from "cloudflare:workers";
 import { zValidator } from "@hono/zod-validator";
 import { Resvg, initWasm } from "@resvg/resvg-wasm";
 import { Parser, jaModel } from "budoux";
@@ -25,12 +26,11 @@ const schema = z.object({
 	favoritePlace: z.string().min(1).max(20),
 });
 
-const app = new Hono();
+type Profile = z.infer<typeof schema>;
 
-app.post("/", zValidator("json", schema), async (c) => {
+async function generate(profile: Profile) {
 	const { icon, name, hobby, favoriteFood, favoriteMovie, favoritePlace } =
-		c.req.valid("json");
-
+		profile;
 	const fontData = await getGoogleFont();
 	const svg = await satori(
 		<ProfileCard
@@ -63,6 +63,14 @@ app.post("/", zValidator("json", schema), async (c) => {
 
 	const pngData = resvg.render();
 	const pngBuffer = pngData.asPng();
+	return pngBuffer;
+}
+
+const app = new Hono();
+
+app.post("/", zValidator("json", schema), async (c) => {
+	const prfile = c.req.valid("json");
+	const pngBuffer = await generate(prfile);
 	return new Response(pngBuffer, {
 		headers: {
 			"Content-Type": "image/png",
