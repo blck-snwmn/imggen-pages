@@ -19,9 +19,10 @@
 		"@remix-run/cloudflare-pages": "^2.8.1",
 		"@remix-run/react": "^2.8.1",
 		"isbot": "^4.1.0",
-		"miniflare": "^3.20231030.4",
+		"miniflare": "^3.20240404.0",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"ip-imggenerator": "workspace:*"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20240405.0",

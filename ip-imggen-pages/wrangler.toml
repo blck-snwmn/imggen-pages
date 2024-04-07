@@ -1,6 +1,7 @@
 name = "ip-imggen-pages"
-compatibility_date = "2024-03-20"
+compatibility_date = "2024-04-05"
 
 [[services]]
 binding = "GENERATOR"
 service = "ip-imggenerator"
+entrypoint = "GenerateService"

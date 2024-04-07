@@ -36,24 +36,15 @@ export const action = async ({ context, request }: ActionFunctionArgs) => {
 	}
 
 	const { env } = context.cloudflare;
-	const resp = await env.GENERATOR.fetch("http://localhost:8787/", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({
-			icon,
-			name,
-			hobby,
-			favoriteFood,
-			favoriteMovie,
-			favoritePlace,
-		}),
-	});
-	if (!resp.ok) {
-		throw new Error(`Failed to fetch: ${await resp.text()}`);
-	}
-	return new Response(resp.body, {
+	const png = await env.GENERATOR.generate({
+		icon,
+		name,
+		hobby,
+		favoriteFood,
+		favoriteMovie,
+		favoritePlace,
+	})
+	return new Response(png, {
 		headers: {
 			"Content-Type": "image/png",
 			"Content-Disposition": "attachment; filename=generated-image.png",
