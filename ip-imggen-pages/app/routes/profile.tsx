@@ -5,9 +5,9 @@ interface InfoItemProps {
 
 const InfoItem = ({ label, value }: InfoItemProps) => {
 	return (
-		<div style={styles.infoItem}>
-			<span style={styles.infoLabel}>{label}</span>
-			<span style={styles.infoValue}>{value}</span>
+		<div style={styles.infoItem as React.CSSProperties}>
+			<span style={styles.infoLabel as React.CSSProperties}>{label}</span>
+			<span style={styles.infoValue as React.CSSProperties}>{value}</span>
 		</div>
 	);
 };
@@ -39,7 +39,11 @@ const ProfileCard = ({
 	return (
 		<div style={styles.card as React.CSSProperties}>
 			<div style={styles.iconContainer as React.CSSProperties}>
-				<img src={iconUrl} alt="Profile Icon" style={styles.icon as React.CSSProperties} />
+				<img
+					src={iconUrl}
+					alt="Profile Icon"
+					style={styles.icon as React.CSSProperties}
+				/>
 				<h2 style={styles.name as React.CSSProperties}>{name}</h2>
 			</div>
 			<div style={styles.infoContainer as React.CSSProperties}>

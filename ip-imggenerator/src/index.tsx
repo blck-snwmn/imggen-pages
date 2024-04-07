@@ -2,6 +2,7 @@ import { zValidator } from "@hono/zod-validator";
 import { Resvg, initWasm } from "@resvg/resvg-wasm";
 import { Parser, jaModel } from "budoux";
 import { Hono } from "hono";
+// biome-ignore lint/style/useImportType: use satroi
 import React from "react";
 import satori from "satori";
 import { z } from "zod";
@@ -97,7 +98,7 @@ interface InfoItemProps {
 
 const InfoItem = ({ label, value }: InfoItemProps) => {
 	return (
-		<div style={styles.infoItem}>
+		<div style={styles.infoItem as React.CSSProperties}>
 			<span style={styles.infoLabel}>{label}</span>
 			<span style={styles.infoValue}>{value}</span>
 		</div>
@@ -130,12 +131,16 @@ const ProfileCard = ({
 	];
 
 	return (
-		<div style={styles.card}>
-			<div style={styles.iconContainer}>
-				<img src={iconUrl} alt="Profile Icon" style={styles.icon} />
-				<h2 style={styles.name}>{name}</h2>
+		<div style={styles.card as React.CSSProperties}>
+			<div style={styles.iconContainer as React.CSSProperties}>
+				<img
+					src={iconUrl}
+					alt="Profile Icon"
+					style={styles.icon as React.CSSProperties}
+				/>
+				<h2 style={styles.name as React.CSSProperties}>{name}</h2>
 			</div>
-			<div style={styles.infoContainer}>
+			<div style={styles.infoContainer as React.CSSProperties}>
 				{infoItems.map((item, index) => (
 					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 					<InfoItem key={index} label={item.label} value={item.value} />
