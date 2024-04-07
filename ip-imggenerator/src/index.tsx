@@ -5,6 +5,7 @@ import { Hono } from "hono";
 import React from "react";
 import satori from "satori";
 import { z } from "zod";
+//@ts-ignore
 import resvgWasm from "./vendor/resvg.wasm";
 
 // initialize budoux parser
