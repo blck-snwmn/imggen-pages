@@ -1,5 +1,5 @@
-import type { PlatformProxy } from "wrangler";
 import type { GenerateService } from "ip-imggenerator/src/index";
+import type { PlatformProxy } from "wrangler";
 
 interface Env {
 	GENERATOR: Service<GenerateService>;

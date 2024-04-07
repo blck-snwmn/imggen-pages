@@ -43,7 +43,7 @@ export const action = async ({ context, request }: ActionFunctionArgs) => {
 		favoriteFood,
 		favoriteMovie,
 		favoritePlace,
-	})
+	});
 	return new Response(png, {
 		headers: {
 			"Content-Type": "image/png",
