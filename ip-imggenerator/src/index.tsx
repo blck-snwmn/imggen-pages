@@ -1,4 +1,4 @@
-import { RpcTarget, WorkerEntrypoint } from "cloudflare:workers";
+import { WorkerEntrypoint } from "cloudflare:workers";
 import { zValidator } from "@hono/zod-validator";
 import { Resvg, initWasm } from "@resvg/resvg-wasm";
 import { Parser, jaModel } from "budoux";
@@ -64,6 +64,13 @@ async function generate(profile: Profile) {
 	const pngData = resvg.render();
 	const pngBuffer = pngData.asPng();
 	return pngBuffer;
+}
+
+export class GenerateService extends WorkerEntrypoint {
+	async generate(profile: Profile) {
+		schema.parse(profile);
+		return await generate(profile);
+	}
 }
 
 const app = new Hono();
