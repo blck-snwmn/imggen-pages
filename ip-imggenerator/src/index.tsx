@@ -32,6 +32,7 @@ async function generate(profile: Profile) {
 	const { icon, name, hobby, favoriteFood, favoriteMovie, favoritePlace } =
 		profile;
 	const fontData = await getGoogleFont();
+	const width = Number.parseInt(styles.card.width, 10);
 	const svg = await satori(
 		<ProfileCard
 			name={name}
@@ -42,8 +43,7 @@ async function generate(profile: Profile) {
 			favoritePlace={favoritePlace}
 		/>,
 		{
-			width: 1200,
-			height: 630,
+			width: width,
 			fonts: [
 				{
 					name: "Roboto",
@@ -88,22 +88,30 @@ app.post("/", zValidator("json", schema), async (c) => {
 export default app;
 
 async function getGoogleFont() {
-	const familyResp = await fetch(
-		"https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700",
-	);
-	if (!familyResp.ok) {
-		throw new Error("Failed to load font data");
-	}
-	const css = await familyResp.text();
-	const resource = css.match(
-		/src: url\((.+)\) format\('(opentype|truetype)'\)/,
-	);
-	if (!resource) {
-		throw new Error("Failed to parse font data");
-	}
+	try {
+		const familyResp = await fetch(
+			"https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700",
+		);
+		if (!familyResp.ok) {
+			throw new Error("Failed to load font data");
+		}
+		const css = await familyResp.text();
+		const resource = css.match(
+			/src: url\((.+)\) format\('(opentype|truetype)'\)/,
+		);
+		if (!resource) {
+			throw new Error("Failed to parse font data");
+		}
 
-	const fontDataResp = await fetch(resource[1]);
-	return await fontDataResp.arrayBuffer();
+		const fontDataResp = await fetch(resource[1]);
+		if (!fontDataResp.ok) {
+			throw new Error("Failed to fetch font data.")
+		}
+		return await fontDataResp.arrayBuffer();
+	} catch (error) {
+		console.error(error)
+		throw new Error("Failed to get google font")
+	}
 }
 
 interface InfoItemProps {
