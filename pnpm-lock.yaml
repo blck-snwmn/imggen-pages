@@ -80,7 +80,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.2.1
-        version: 0.2.1(hono@4.1.4)(zod@3.22.4)
+        version: 0.2.1(hono@4.2.7)(zod@3.22.4)
       '@resvg/resvg-wasm':
         specifier: ^2.6.0
         version: 2.6.0
@@ -88,8 +88,8 @@ importers:
         specifier: ^0.6.2
         version: 0.6.2
       hono:
-        specifier: ^4.1.4
-        version: 4.1.4
+        specifier: ^4.2.7
+        version: 4.2.7
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1320,13 +1320,13 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  /@hono/zod-validator@0.2.1(hono@4.1.4)(zod@3.22.4):
+  /@hono/zod-validator@0.2.1(hono@4.2.7)(zod@3.22.4):
     resolution: {integrity: sha512-HFoxln7Q6JsE64qz2WBS28SD33UB2alp3aRKmcWnNLDzEL1BLsWfbdX6e1HIiUprHYTIXf5y7ax8eYidKUwyaA==}
     peerDependencies:
       hono: '>=3.9.0'
       zod: ^3.19.1
     dependencies:
-      hono: 4.1.4
+      hono: 4.2.7
       zod: 3.22.4
     dev: false
 
@@ -1958,7 +1958,7 @@ packages:
       '@babel/plugin-syntax-typescript': 7.24.1(@babel/core@7.24.3)
       '@vanilla-extract/babel-plugin-debug-ids': 1.0.5
       '@vanilla-extract/css': 1.14.1
-      esbuild: 0.17.6
+      esbuild: 0.17.19
       eval: 0.1.8
       find-up: 5.0.0
       javascript-stringify: 2.1.0
@@ -3407,8 +3407,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /hono@4.1.4:
-    resolution: {integrity: sha512-JcdAKRBHjWO5OEkEW6Lv5NUr4QLl4InshCIUnHwGY7hymCxmV1Ji/eAAr1hclQixWc3I7ZljMHXwIedNWRAcqA==}
+  /hono@4.2.7:
+    resolution: {integrity: sha512-k1xHi86tJnRIVvqhFMBDGFKJ8r5O+bEsT4P59ZK59r0F300Xd910/r237inVfuT/VmE86RQQffX4OYNda6dLXw==}
     engines: {node: '>=16.0.0'}
     dev: false
 
