@@ -105,12 +105,12 @@ async function getGoogleFont() {
 
 		const fontDataResp = await fetch(resource[1]);
 		if (!fontDataResp.ok) {
-			throw new Error("Failed to fetch font data.")
+			throw new Error("Failed to fetch font data.");
 		}
 		return await fontDataResp.arrayBuffer();
 	} catch (error) {
-		console.error(error)
-		throw new Error("Failed to get google font")
+		console.error(error);
+		throw new Error("Failed to get google font");
 	}
 }
 
