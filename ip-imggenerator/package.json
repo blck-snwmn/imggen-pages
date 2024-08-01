@@ -9,20 +9,20 @@
 		"test": "vitest"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.4.0",
-		"@cloudflare/workers-types": "^4.20240529.0",
+		"@cloudflare/vitest-pool-workers": "^0.4.16",
+		"@cloudflare/workers-types": "^4.20240725.0",
 		"@types/react": "^18.3.3",
-		"typescript": "^5.4.5",
-		"vitest": "1.6.0",
-		"wrangler": "^3.58.0"
+		"typescript": "^5.5.4",
+		"vitest": "2.0.5",
+		"wrangler": "^3.67.1"
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.2.2",
 		"@resvg/resvg-wasm": "^2.6.2",
 		"budoux": "^0.6.2",
-		"hono": "^4.4.2",
+		"hono": "^4.5.3",
 		"react": "^18.3.1",
-		"satori": "^0.10.13",
+		"satori": "^0.10.14",
 		"zod": "^3.23.8"
 	}
 }
